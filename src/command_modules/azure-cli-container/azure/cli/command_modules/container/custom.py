@@ -146,7 +146,7 @@ def _call_rp_configure_cicd(
     :type create_release: bool
     """
     profile = Profile()
-    cred, subscription_id, _ = profile.get_login_credentials()
+    _, subscription_id, _ = profile.get_login_credentials()
 
     o_auth_token = _get_service_token()
     container_service_resource_id = CONTAINER_SERVICE_RESOURCE_URL.format(subscription_id=subscription_id, resource_group_name=target_resource_group, container_service_name=target_name)
@@ -189,7 +189,7 @@ def list_releases(target_name, target_resource_group):
     :type target_resource_group: String
     """
     profile = Profile()
-    cred, subscription_id, _ = profile.get_login_credentials()
+    _, subscription_id, _ = profile.get_login_credentials()
 
     o_auth_token = _get_service_token()
     container_service_resource_id = CONTAINER_SERVICE_RESOURCE_URL.format(subscription_id=subscription_id, resource_group_name=target_resource_group, container_service_name=target_name)
@@ -353,7 +353,6 @@ def add_ci(
         False)
 
 def _get_service_token():
-    import adal
     from azure.cli.core._profile import get_authority_url, CredsCache
 
     profile = Profile()
@@ -361,10 +360,7 @@ def _get_service_token():
     account = profile.get_subscription()
     user_name = account['user']['name']
     tenant = account['tenantId']
-    authority = get_authority_url(tenant)
-    auth_context = adal.AuthenticationContext(authority)
-
-    scheme, token = credsCache.retrieve_token_for_user(user_name, tenant, SERVICE_RESOURCE_ID)    
+    scheme, token = credsCache.retrieve_token_for_user(user_name, tenant, SERVICE_RESOURCE_ID)
     service_token = "{} {}".format(scheme, token)
 
     return service_token
