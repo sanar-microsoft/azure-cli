@@ -13,7 +13,7 @@ import requests
 import yaml
 
 import azure.cli.core._logging as _logging
-from azure.cli.core._profile import Profile
+from azure.cli.core._profile import Profile, CredsCache
 # pylint: disable=too-few-public-methods,too-many-arguments,no-self-use,too-many-locals,line-too-long
 from azure.cli.core._util import CLIError
 
@@ -353,8 +353,6 @@ def add_ci(
         False)
 
 def _get_service_token():
-    from azure.cli.core._profile import get_authority_url, CredsCache
-
     profile = Profile()
     credsCache = CredsCache()
     account = profile.get_subscription()
