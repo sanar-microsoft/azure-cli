@@ -13,7 +13,10 @@ import requests
 import yaml
 
 import azure.cli.core._logging as _logging
+<<<<<<< HEAD
 from azure.cli.core._config import az_config
+=======
+>>>>>>> Removing unused import.
 from azure.cli.core._profile import Profile, CredsCache
 # pylint: disable=too-few-public-methods,too-many-arguments,no-self-use,too-many-locals,line-too-long
 from azure.cli.core._util import CLIError
@@ -379,6 +382,7 @@ def add_ci(
 def _get_service_token():
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     import adal
 =======
@@ -386,6 +390,8 @@ def _get_service_token():
     from azure.cli.core._profile import get_authority_url, CredsCache
 
 >>>>>>> Replacing arm token with mindaro token
+=======
+>>>>>>> Removing unused import.
     profile = Profile()
     credsCache = CredsCache()
     account = profile.get_subscription()
