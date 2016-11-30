@@ -13,7 +13,10 @@ import requests
 import yaml
 
 import azure.cli.core._logging as _logging
+<<<<<<< HEAD
 from azure.cli.core._config import az_config
+=======
+>>>>>>> e92d1a5c23ac88a7e493e2c6d34f0dacfb17379b
 from azure.cli.core._profile import Profile, CredsCache
 # pylint: disable=too-few-public-methods,too-many-arguments,no-self-use,too-many-locals,line-too-long
 from azure.cli.core._util import CLIError
