@@ -13,10 +13,7 @@ import requests
 import yaml
 
 import azure.cli.core._logging as _logging
-<<<<<<< HEAD
 from azure.cli.core._config import az_config
-=======
->>>>>>> Removing unused import.
 from azure.cli.core._profile import Profile, CredsCache
 # pylint: disable=too-few-public-methods,too-many-arguments,no-self-use,too-many-locals,line-too-long
 from azure.cli.core._util import CLIError
@@ -380,35 +377,12 @@ def add_ci(
         False)
 
 def _get_service_token():
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    import adal
-=======
->>>>>>> Fixing pylint errors.
-    from azure.cli.core._profile import get_authority_url, CredsCache
-
->>>>>>> Replacing arm token with mindaro token
-=======
->>>>>>> Removing unused import.
     profile = Profile()
     credsCache = CredsCache()
     account = profile.get_subscription()
     user_name = account['user']['name']
     tenant = account['tenantId']
-<<<<<<< HEAD
-<<<<<<< HEAD
     scheme, token = credsCache.retrieve_token_for_user(user_name, tenant, SERVICE_RESOURCE_ID)
-=======
-    authority = get_authority_url(tenant)
-    auth_context = adal.AuthenticationContext(authority)
-
-    scheme, token = credsCache.retrieve_token_for_user(user_name, tenant, SERVICE_RESOURCE_ID)    
->>>>>>> Replacing arm token with mindaro token
-=======
-    scheme, token = credsCache.retrieve_token_for_user(user_name, tenant, SERVICE_RESOURCE_ID)
->>>>>>> Fixing pylint errors.
     service_token = "{} {}".format(scheme, token)
 
     return service_token
