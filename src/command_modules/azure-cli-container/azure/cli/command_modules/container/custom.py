@@ -378,8 +378,11 @@ def add_ci(
 
 def _get_service_token():
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     import adal
+=======
+>>>>>>> Fixing pylint errors.
     from azure.cli.core._profile import get_authority_url, CredsCache
 
 >>>>>>> Replacing arm token with mindaro token
@@ -389,6 +392,7 @@ def _get_service_token():
     user_name = account['user']['name']
     tenant = account['tenantId']
 <<<<<<< HEAD
+<<<<<<< HEAD
     scheme, token = credsCache.retrieve_token_for_user(user_name, tenant, SERVICE_RESOURCE_ID)
 =======
     authority = get_authority_url(tenant)
@@ -396,6 +400,9 @@ def _get_service_token():
 
     scheme, token = credsCache.retrieve_token_for_user(user_name, tenant, SERVICE_RESOURCE_ID)    
 >>>>>>> Replacing arm token with mindaro token
+=======
+    scheme, token = credsCache.retrieve_token_for_user(user_name, tenant, SERVICE_RESOURCE_ID)
+>>>>>>> Fixing pylint errors.
     service_token = "{} {}".format(scheme, token)
 
     return service_token
