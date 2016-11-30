@@ -377,12 +377,25 @@ def add_ci(
         False)
 
 def _get_service_token():
+<<<<<<< HEAD
+=======
+    import adal
+    from azure.cli.core._profile import get_authority_url, CredsCache
+
+>>>>>>> Replacing arm token with mindaro token
     profile = Profile()
     credsCache = CredsCache()
     account = profile.get_subscription()
     user_name = account['user']['name']
     tenant = account['tenantId']
+<<<<<<< HEAD
     scheme, token = credsCache.retrieve_token_for_user(user_name, tenant, SERVICE_RESOURCE_ID)
+=======
+    authority = get_authority_url(tenant)
+    auth_context = adal.AuthenticationContext(authority)
+
+    scheme, token = credsCache.retrieve_token_for_user(user_name, tenant, SERVICE_RESOURCE_ID)    
+>>>>>>> Replacing arm token with mindaro token
     service_token = "{} {}".format(scheme, token)
 
     return service_token
